@@ -9,9 +9,9 @@ export interface NavLinkObj {
   linkName: string
 }
 
-export interface JokeTextInterface {
-  joke: string | undefined,
+export interface UserTextInterface {
+  user: string | undefined,
   error: string | undefined,
   isLoading: boolean,
-  getJoke: () => void
+  getUser: () => void
 }

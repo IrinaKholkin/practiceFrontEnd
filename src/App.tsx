@@ -12,11 +12,11 @@ function App() {
     // которая позволяет использовать маршрутизацию
     <BrowserRouter>
       <GlobalStyles />
-      
-          {/* <Route path='/homework18' element={<Homework18 />} /> */}
-   
-          {/* <Route path='*' element={<PageNotFound />} /> */}
-      
+      <Routes>
+      {/* <Route path='/' element={<LoginForm />}/>
+      <Route path='/user_data' element={<UserData />}/> */}
+      {/* <Route path='*' element={<PageNotFound />} */}
+      </Routes>
     </BrowserRouter>
   )
 }
