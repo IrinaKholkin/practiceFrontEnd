@@ -14,11 +14,6 @@ export const Header = styled.header`
  background-color: #F5B0BC;
 `;
 
-export const LogoImage = styled.img`
-width: 60px;
-border-radius: 50%;
-`;
-
 export const Nav = styled.nav`
  display: flex;
  gap: 15px;
@@ -26,7 +21,7 @@ export const Nav = styled.nav`
 
 export const StyledNavLink = styled(NavLink)`
 font-size: 24px;
-color:rgb(122, 30, 45);
+color:rgb(30, 114, 122);
 font-weight: bold;
 text-decoration: none;
 `;
@@ -42,16 +37,11 @@ export const Footer = styled.footer`
  align-items: center;
  gap: 30px;
  padding: 20px;
- background-color: #8a1e30;
+ background-color:rgb(215, 99, 119);
  color: white;
 `;
 
 export const ButtonContainer = styled.div`
  width: 50px;
-`;
-export const LogoText = styled.div`
-  font-size: 28px;
-  font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 `;
 
