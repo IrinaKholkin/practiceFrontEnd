@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 
-//Для обёртки элементов формы (поля, чекбоксы, кнопки и т.д.)
-//должен использоваться элемент form
 export const LoginFormComponent = styled.form`
  display: flex;
  flex-direction: column;
@@ -17,3 +15,8 @@ export const Title = styled.div`
  font-size: 26px;
  font-weight: bold;
 `
+export const Error = styled.div`
+ font-size: 28px;
+ color: red;
+ font-weight: bold;
+ `
