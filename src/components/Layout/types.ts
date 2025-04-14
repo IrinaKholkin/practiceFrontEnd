@@ -10,8 +10,14 @@ export interface NavLinkObj {
 }
 
 export interface UserTextInterface {
-  user: string | undefined,
-  error: string | undefined,
-  isLoading: boolean,
-  getUser: () => void
+  user: string | undefined;
+  name: string | undefined;
+  email: string | undefined;
+  error: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;
+  avatar?: string | undefined;
+  isLoading: boolean;
+  getUser: () => void;
 }

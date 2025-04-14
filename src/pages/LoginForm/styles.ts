@@ -19,4 +19,12 @@ export const Error = styled.div`
  font-size: 28px;
  color: red;
  font-weight: bold;
- `
+ `;
+
+export const SubmitError = styled.div`
+color: red;
+margin-bottom: 10px;
+font-size: 1rem;
+font-weight: bold;
+text-align: center;
+`;

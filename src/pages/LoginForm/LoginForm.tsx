@@ -1,26 +1,17 @@
 import {useFormik } from "formik";
 import * as Yup from "yup";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Button from "../Button/Button";
-import Input from "../Input/Input";
-import { LoginFormComponent, Title, Error } from "./styles";
-import { LoginFormValues } from "./types";
-import Spinner from "../Spinner/Spinner";
-import { UserContext } from "../Layout/Layout";
-
-
+import Button from "../../components/Button/Button";
+import Input from "../../components/Input/Input";
+import { LoginFormComponent, Title, SubmitError } from "./styles";
+import { UserDataContext } from "../../components/Layout/Layout";
 
 function LoginForm() {
-  const {error, isLoading, getUser, user} = useContext(UserContext)
-
+  const { getUser } = useContext(UserDataContext);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const navigate = useNavigate();
-
-  const getUserAndredirect = ()=>{
-    getUser()
-    navigate('/user_data')
-  }
 
   const schema = Yup.object().shape({
     email: Yup.string()
@@ -36,19 +27,24 @@ function LoginForm() {
       ),
   });
 
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    } as LoginFormValues,
-    validationSchema: schema,
-    validateOnChange: false,
-    onSubmit: (values: LoginFormValues) => {
-      console.table(values);
-    },
-  });
-
-  console.log(formik);
+    const formik = useFormik({
+      initialValues: {
+        email: '',
+        password: ''
+      },
+      validationSchema: schema,
+      validateOnChange: false,
+      onSubmit: () => {
+        setSubmitError(null);
+        try {
+          getUser();
+          navigate('/user_data');
+        } catch (error) {
+          setSubmitError("Login failed. Try again.");
+          console.error(error);
+        }
+      }
+    });
 
   return (
     <LoginFormComponent onSubmit={formik.handleSubmit}>
@@ -62,7 +58,6 @@ function LoginForm() {
         onChange={formik.handleChange}
         error={formik.errors.email}
       />
-      <Error>{error}</Error>
       <Input
         name="password"
         label="Password *"
@@ -72,9 +67,8 @@ function LoginForm() {
         onChange={formik.handleChange}
         error={formik.errors.password}
       />
-      <Error>{error}</Error>
-      <Button name="LOGIN" onClick={getUserAndredirect}/>
-      {isLoading ? <Spinner /> : user}
+      {submitError && <SubmitError>{submitError}</SubmitError>}
+      <Button name='Login' type='submit'/>
     </LoginFormComponent>
   );
 }
