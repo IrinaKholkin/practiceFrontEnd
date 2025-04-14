@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { UserDataContext } from "../../components/Layout/Layout";
 import { UserDataWrapper, UserCard, UserInfo, UserName, Avatar, ErrorWrapper, ErrorImage, ErrorTitle, LinkButton } from "./styles";
 import Spinner from "../../components/Spinner/Spinner";
-import { Link } from "react-router-dom";
+
 function UserData() {
     const {
         user,
@@ -34,7 +34,6 @@ function UserData() {
                 <ErrorTitle>Oops! Something broke{error}</ErrorTitle>
             </ErrorWrapper>
         )}
-            <Link to="/layout"></Link>
         </UserDataWrapper>
     );
 }

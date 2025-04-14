@@ -8,7 +8,7 @@ import { v4 } from "uuid";
 import React from "react";
 import { Footer, Header, LayoutComponent, Main, MainLink, Nav, StyledNavLink, WelcomeText } from "./styles";
 
-// eslint-disable-next-line react-refresh/only-export-components
+
 export const UserDataContext = React.createContext<UserTextInterface>({
   user: undefined,
   name: undefined,
